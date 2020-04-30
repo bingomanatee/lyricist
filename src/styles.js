@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const MENU_ITEM_ACTIVE_COLOR = "rgb(255,0,0)";
-const MENU_ITEM_COLOR = "rgb(153, 51, 204)";
-const MENU_ITEM_HOVER_COLOR = "rgb(153, 102, 102)";
+const MENU_ITEM_COLOR = "rgb(255, 51, 204)";
+const MENU_ITEM_HOVER_COLOR = "rgb(153, 0, 102)";
+const BUTTON_COLOR = "rgb(0, 51, 153)";
 
 export const Frame = styled.main`
   display: grid;
@@ -22,9 +23,10 @@ export const TitleView = styled.header`
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   grid-area: head;
   margin: 0;
+  background-color: rgba(255, 225, 225);
 `;
 
 export const BodyView = styled.section`
@@ -66,9 +68,11 @@ export const ContentView = styled.article`
   color: black;
   display: block;
   text-align: left;
-  > h1 {
+  > h1,
+  > h2 {
     font-weight: bolder;
     margin-bottom: 1rem;
+    font-size: 1.25rem;
   }
   > p {
     margin-bottom: 1rem;
@@ -80,8 +84,8 @@ export const CreateFormFrame = styled.section`
   display: grid;
   width: 100%;
   overflow: hidden;
-  grid-template-rows: auto auto 1fr 60px;
-  grid-template-columns: minmax(3rem, 30%) 1fr;
+  grid-template-rows: auto auto 1fr 100px;
+  grid-template-columns: minmax(6rem, 30%) 1fr;
   flex-grow: 1;
   grid-template-areas:
     "name-label name-input"
@@ -93,17 +97,25 @@ export const CreateFormFrame = styled.section`
 export const SongListing = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  margin-bottom: 1rem;
-  width: 100%;
+  padding: 0.25rem 2rem;
   > h2 {
     flex: 1;
     font-weight: bold;
+    font-size: 1.125rem;
+    color: rgb(0, 0, 102);
+    &:hover {
+      color: red;
+    }
   }
   > button {
     flex: 0;
+    font-weight: bold;
+    color: ${BUTTON_COLOR};
   }
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
 `;
 
 export const GridArea = styled.div`
@@ -118,7 +130,41 @@ export const FormTitle = styled(GridArea)`
   font-weight: bold;
   text-overflow: ellipsis;
 `;
-
 export const FormElement = styled(FormTitle)`
   font-weight: normal;
+`;
+
+export const ScriptingHead = styled.h1`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  span {
+    flex-grow: 1;
+  }
+`;
+
+export const Timestamp = styled.span`
+  font-family: "Courier New", Courier, monospace;
+  color: red;
+  font-weight: bold;
+`;
+
+export const LyricsView = styled.article`
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  color: rgb(0, 102, 0);
+`;
+
+export const LyricItem = styled.p`
+  &:hover {
+    color: red;
+  }
+  margin: 0;
+  i {
+    min-width: 3rem;
+    margin-right: 1rem;
+    display: inline-block;
+    white-space: nowrap;
+    color: black;
+  }
 `;

@@ -11,6 +11,7 @@ export default () => {
     setSub(
       store.subscribe(s => {
         setSongs(s.my.songs);
+
       })
     );
     return () => sub && sub.unsubscribe();
@@ -19,8 +20,14 @@ export default () => {
   const songsToItems = song =>
     song && (
       <SongListing key={song.title}>
-        <h2>{song.title} </h2>
-        <Button plain>Script</Button>
+        <h2>
+          <Button plain onClick={() => store.do.playSong(song)}>
+            {song.title}
+          </Button>
+        </h2>
+        <Button plain onClick={() => store.do.scriptSong(song)}>
+          Script
+        </Button>
       </SongListing>
     );
 

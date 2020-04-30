@@ -38,6 +38,7 @@ export default () => {
       >
         <Box direction="column" justify="stretch" fill={true}>
           <h1>Create a song</h1>
+        
           <Box width="100%">
             {url && <Player url={url} width="100%" height={120} />}
           </Box>
@@ -53,8 +54,12 @@ export default () => {
             <FormTitle gridArea="lyrics-label">Lyrics</FormTitle>
             <FormElement gridArea="lyrics-input">
               <FormField name="lyrics" component={TextArea} />
+<small>paste in lyrics; lyrics must be seperated line by line</small>
             </FormElement>
             <GridArea area="buttons">
+            <p>
+            fill in all fields
+            </p>
               <Button primary type="submit" plain={false}>
                 Save Song
               </Button>

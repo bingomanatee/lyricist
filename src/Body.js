@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
+import Script from "./pages/ScriptSong";
+import Play from "./pages/Play";
 
 import store from "./store";
 import { BodyView } from "./styles";
@@ -21,6 +23,14 @@ export default () => {
 
     case "create":
       PageView = Create;
+      break;
+
+    case "script":
+      PageView = Script;
+      break;
+
+    case "play":
+      PageView = Play;
       break;
 
     default:
