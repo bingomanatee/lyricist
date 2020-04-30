@@ -1,2 +1,0 @@
-# lyricist
-Created with CodeSandbox
