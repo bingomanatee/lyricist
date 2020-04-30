@@ -19,7 +19,7 @@ export default () => {
       PageView = Home;
       break;
 
-    case 'create':
+    case "create":
       PageView = Create;
       break;
 
@@ -28,7 +28,7 @@ export default () => {
   }
 
   return (
-    <BodyView>
+    <BodyView id="body-view">
       <PageView />
     </BodyView>
   );

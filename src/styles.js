@@ -9,11 +9,12 @@ export const Frame = styled.main`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  grid-template-rows: 30px 1fr;
+  grid-template-rows: 60px auto;
   grid-template-columns: auto;
   grid-template-areas:
     "head"
     "main";
+  border: 1px solid red;
 `;
 
 export const TitleView = styled.header`
@@ -32,6 +33,14 @@ export const BodyView = styled.section`
   grid-area: main;
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  form {
+    height: 100%;
+  }
 `;
 
 export const MenuItem = styled.div`
@@ -64,18 +73,37 @@ export const ContentView = styled.article`
   > p {
     margin-bottom: 1rem;
   }
+  height: 100%;
 `;
 
 export const CreateFormFrame = styled.section`
   display: grid;
-  height: 100%;
   width: 100%;
   overflow: hidden;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr 60px;
   grid-template-columns: minmax(3rem, 30%) 1fr;
+  flex-grow: 1;
   grid-template-areas:
     "name-label name-input"
-    "lyrics-label lyrics-input";
+    "url-label url-input"
+    "lyrics-label lyrics-input"
+    "save-button save-button";
+`;
+
+export const SongListing = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+  width: 100%;
+  > h2 {
+    flex: 1;
+    font-weight: bold;
+  }
+  > button {
+    flex: 0;
+  }
 `;
 
 export const GridArea = styled.div`

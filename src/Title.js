@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <TitleView>
-      <Logo>Lyricist</Logo>
+      <Logo onClick={store.do.goHome}>Lyricist</Logo>
       <MenuItem active={page === "create"} onClick={store.do.goCreate}>
         Create Song
       </MenuItem>
