@@ -16,11 +16,31 @@ html,
 }
 
 html {
-  background-color: rgb(255, 25, 25);
+  background-color: rgb(204, 25, 51);
 }
 
-h1,
-h2,
-h3 {
-  color: rgba(255, 255, 255, 0.65);
+p,
+li {
+  font-size: 0.95rem;
+  line-height: 150%;
+}
+
+.orange {
+  color: orange;
+}
+
+pre {
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+}
+
+a,
+a:visited {
+  color: rgba(0, 0, 153, 0.666);
+  font-weight: bold;
+}
+
+a:hover {
+  color: blue;
 }

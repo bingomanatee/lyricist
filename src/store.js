@@ -1,5 +1,7 @@
 import { ValueStream } from "@wonderlandlabs/looking-glass-engine";
 import localForage from "localforage";
+import hand from './hand-in-my-pocket.json';
+import who from './who-can-it-be.json';
 
 localForage.config({
   name: "lyricist",
@@ -14,6 +16,7 @@ const store = new ValueStream("lyricist")
   .property("page", "home", "string")
   .method("goCreate", s => s.do.setPage("create"))
   .method("goHome", s => s.do.setPage("home"))
+  .method("goNotes", s => s.do.setPage("notes"))
   .property("newSong", null)
   .method("playSong", (s, song) => {
     s.do.setCurrentSong(song);
@@ -86,6 +89,8 @@ const store = new ValueStream("lyricist")
     }
     return s.my.newSong;
   })
+  .method('loadWho', (s) => s.do.saveSong("Who can it be Now", who))
+  .method('loadHand', (s) => s.do.saveSong('Hand in my Pocket', hand))
   .method("addSong", (s, name, lyrics) => {
     if (!s.my.songs.has(name)) {
       s.my.songs.set("name", {

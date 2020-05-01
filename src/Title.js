@@ -17,6 +17,9 @@ export default () => {
       <MenuItem active={page === "create"} onClick={store.do.goCreate}>
         Create Song
       </MenuItem>
+      <MenuItem active={page === "style"} onClick={store.do.goNotes}>
+        Style Notes
+      </MenuItem>
     </TitleView>
   );
 };

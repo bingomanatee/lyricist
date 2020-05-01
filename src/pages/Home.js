@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { SongListing, SongGrid, SongSpacer } from "../styles";
-import {} from "grommet";
+import { SongListing, SongGrid, SongSpacer, Button, Buttons } from "../styles";
+import {Box} from "grommet";
 import store from "../store";
-import { ContentView, Button } from "../styles";
+import { ContentView } from "../styles";
 export default () => {
   const [sub, setSub] = useState(null);
   const [songs, setSongs] = useState(new Map());
@@ -43,6 +43,10 @@ export default () => {
         <SongSpacer />
         {Array.from(songs.values()).map(songsToItems)}
       </SongGrid>
+      <Box justify="between" direction="row">
+      <Button onClick={store.do.loadWho}>Load "Who can it be now"</Button>
+      <Button onClick={store.do.loadHand}>Load "Hand in my pocket"</Button>
+      </Box>
     </ContentView>
   );
 };

@@ -50,6 +50,9 @@ export default () => {
             <FormTitle gridArea="url-label">YouTube URL</FormTitle>
             <FormElement gridArea="url-input">
               <FormField name="url" />
+              <small>https://www.youtube.com/watch?v=CUjIY_XxF1g</small>
+              <br />
+              <small>https://www.youtube.com/watch?v=Lc1Ll-euRSg</small>
             </FormElement>
             <FormTitle gridArea="lyrics-label">Lyrics</FormTitle>
             <FormElement gridArea="lyrics-input">

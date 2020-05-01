@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Script from "./pages/ScriptSong";
 import Play from "./pages/Play";
-
+import Notes from "./pages/Styled-Components";
 import store from "./store";
 import { BodyView } from "./styles";
 export default () => {
@@ -31,6 +31,10 @@ export default () => {
 
     case "play":
       PageView = Play;
+      break;
+
+    case "notes":
+      PageView = Notes;
       break;
 
     default:

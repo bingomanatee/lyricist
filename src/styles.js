@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
-const MENU_ITEM_ACTIVE_COLOR = "rgb(255,0,0)";
+const MENU_ITEM_ACTIVE_COLOR = "rgba(204,255,51)";
 const MENU_ITEM_COLOR = "white";
-const MENU_ITEM_HOVER_COLOR = "rgb(153, 0, 102)";
+const MENU_ITEM_HOVER_COLOR = "rgba(204,255,153)";
 const BUTTON_COLOR = "rgb(204, 0, 51)";
 const BUTTON_COLOR_PRIMARY = "rgb(153, 0,  51)";
 const FORM_TITLE = "rgba(0,0,0,0.5)";
 const BACKGROUND = "rgba(0,0,255,0.125)";
 const FONT = `
+font-family: Merriweather, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  `;
+const FONT_HEAD = `
 font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1rem;
   `;
@@ -16,7 +20,7 @@ export const Frame = styled.main`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  grid-template-rows: 60px auto;
+  grid-template-rows: 40px auto;
   grid-template-columns: auto;
   grid-template-areas:
     "head"
@@ -53,8 +57,10 @@ export const BodyView = styled.section`
 
 export const MenuItem = styled.div`
   flex-grow: 0;
-  font-size: 1rem;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  ${FONT}
+  font-size: 1.25rem;
+  font-weight: normal;
+  text-transform: uppercase;
   padding: 0.5rem;
   margin-right: 1rem;
   color: ${({ active }) => (active ? MENU_ITEM_ACTIVE_COLOR : MENU_ITEM_COLOR)};
@@ -65,25 +71,53 @@ export const MenuItem = styled.div`
 
 export const Logo = styled(MenuItem)`
   font-weight: bold;
+  color: black;
 `;
 
 export const ContentView = styled.article`
-  padding: 1rem;
-  font-size: 1rem;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding: 1rem 2rem;
+  ${FONT}
   color: black;
   display: block;
   text-align: left;
   > h1,
   > h2 {
+    color: rgba(0, 255, 255, 0.8);
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
     font-weight: bolder;
     margin-bottom: 1rem;
+    ${FONT_HEAD}
     font-size: 1.25rem;
+  }
+  > h1 {
+    text-transform: uppercase;
+  }
+  > h2 {
+    border-bottom: 1px solid rgba(0, 0, 255, 0.25);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
   }
   > p {
     margin-bottom: 1rem;
   }
   height: 100%;
+  > ul li,
+  > ol li {
+    color: rgba(255, 255, 255, 0.5);
+    span {
+      color: black;
+      margin-left: 1rem;
+    }
+    margin-bottom: 0.8rem;
+  }
+  ol,
+  ul {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+  }
 `;
 
 export const CreateFormFrame = styled.section`
@@ -176,12 +210,12 @@ export const Button = styled.button`
   color: white;
   border: none;
   ${FONT}
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem;
+  line-height: 2.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-radius: 1.25rem;
-  line-height: 2.5rem;
   height: 2.5rem;
   background: ${({ primary }) =>
     primary ? BUTTON_COLOR_PRIMARY : BUTTON_COLOR};
@@ -207,4 +241,8 @@ export const SongSpacer = styled.hr`
   border: none;
   height: 1px !important;
   background: rgba(255, 255, 255, 0.5);
+`;
+
+export const BlueB = styled.b`
+  color: blue;
 `;
