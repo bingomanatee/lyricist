@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, FormField, TextArea, Box, Button } from "grommet";
-import { FormTitle, FormElement, GridArea } from "../styles";
+import { Form, FormField, TextArea, Box, TextInput } from "grommet";
+import { FormTitle, FormElement, GridArea, Button } from "../styles";
 import Player from "react-player";
 
 import store from "../store";
@@ -22,7 +22,7 @@ export default () => {
     return () => sub && sub.unsubscribe();
   }, []);
 
-  const saveSong = ({value} )=> {
+  const saveSong = ({ value }) => {
     console.log("saving", value);
     if (value.title) {
       store.do.saveSong(value.title, value);
@@ -38,7 +38,7 @@ export default () => {
       >
         <Box direction="column" justify="stretch" fill={true}>
           <h1>Create a song</h1>
-        
+
           <Box width="100%">
             {url && <Player url={url} width="100%" height={120} />}
           </Box>
@@ -54,13 +54,13 @@ export default () => {
             <FormTitle gridArea="lyrics-label">Lyrics</FormTitle>
             <FormElement gridArea="lyrics-input">
               <FormField name="lyrics" component={TextArea} />
-<small>paste in lyrics; lyrics must be seperated line by line</small>
+              <small>
+                paste in lyrics; lyrics must be seperated line by line
+              </small>
             </FormElement>
             <GridArea area="buttons">
-            <p>
-            fill in all fields
-            </p>
-              <Button primary type="submit" plain={false}>
+              <p>fill in all fields</p>
+              <Button primary type="submit">
                 Save Song
               </Button>
             </GridArea>

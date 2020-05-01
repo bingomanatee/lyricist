@@ -10,7 +10,7 @@ export default () => {
   const [song, setSong] = useState(null);
   const [sub, setSub] = useState(null);
   const [time, setTime] = useState(0);
-  const [line, setLine] = useState('');
+  const [line, setLine] = useState("");
   const [url, setUrl] = useState("");
   useEffect(() => {
     setSub(
@@ -40,6 +40,7 @@ export default () => {
             url={url}
             onProgress={store.do.progress}
             width="100%"
+            progressInterval={333}
             height={300}
           />
         )}

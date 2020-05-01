@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { SongListing } from "../styles";
-import { Button } from "grommet";
+import { SongListing, SongGrid, SongSpacer } from "../styles";
+import {} from "grommet";
 import store from "../store";
-import { ContentView } from "../styles";
+import { ContentView, Button } from "../styles";
 export default () => {
   const [sub, setSub] = useState(null);
   const [songs, setSongs] = useState(new Map());
@@ -11,7 +11,6 @@ export default () => {
     setSub(
       store.subscribe(s => {
         setSongs(s.my.songs);
-
       })
     );
     return () => sub && sub.unsubscribe();
@@ -19,16 +18,20 @@ export default () => {
 
   const songsToItems = song =>
     song && (
-      <SongListing key={song.title}>
-        <h2>
-          <Button plain onClick={() => store.do.playSong(song)}>
+      <>
+        <SongListing key={song.title}>
+          <Button
+            className="main"
+            plain
+            onClick={() => store.do.playSong(song)}
+          >
             {song.title}
           </Button>
-        </h2>
-        <Button plain onClick={() => store.do.scriptSong(song)}>
-          Script
-        </Button>
-      </SongListing>
+
+          <Button onClick={() => store.do.scriptSong(song)}>Script</Button>
+        </SongListing>
+        <SongSpacer />
+      </>
     );
 
   return (
@@ -36,7 +39,10 @@ export default () => {
       <h1>Welcome to Lyricist</h1>
       <p>Click on "Create" above to create a music video</p>
       <h2>Saved Songs</h2>
-      {Array.from(songs.values()).map(songsToItems)}
+      <SongGrid>
+        <SongSpacer />
+        {Array.from(songs.values()).map(songsToItems)}
+      </SongGrid>
     </ContentView>
   );
 };

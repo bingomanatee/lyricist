@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Timestamp, ScriptingHead } from "../styles";
-import { Button, Box } from "grommet";
+import { Box } from "grommet";
 import Player from "react-player";
-import Lyrics from './Lyrics';
+import Lyrics from "./Lyrics";
 
 import store from "../store";
 import { ContentView } from "../styles";
@@ -30,13 +30,17 @@ export default () => {
         <span>Scripting "{song && song.title}"</span>
         <Timestamp>{time.toFixed(2)}</Timestamp>
       </ScriptingHead>
-      <p>Play the song and click on the current line when it starts to establish time stamps</p>
+      <p>
+        Play the song and click on the current line when it starts to establish
+        time stamps
+      </p>
       <Box width="100%">
         {url && (
           <Player
             url={url}
             onProgress={store.do.progress}
             width="100%"
+            progressInterval={333}
             height={120}
           />
         )}

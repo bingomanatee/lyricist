@@ -14,3 +14,13 @@ html,
   padding: 0;
   overflow: hidden;
 }
+
+html {
+  background-color: rgb(255, 25, 25);
+}
+
+h1,
+h2,
+h3 {
+  color: rgba(255, 255, 255, 0.65);
+}
